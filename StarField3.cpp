@@ -12,16 +12,16 @@ public:
 	{
 		sAppName = "Star Field";
 	}
-
-	float fWorldSpeed = 100.0f;
-	float fStarSpeedMultiplier = 2.0f;
 	
+	//set world speed
+	float fWorldSpeed = 100.0f;
+	
+	//declare 2D vectors for each layer of stars which get progressively smaller
 	std::array<olc::vf2d, 1000> arrayStarsClose;
 	std::array<olc::vf2d, 800> arrayStarsMid;
 	std::array<olc::vf2d, 500> arrayStarsFar;
-
-	//olc::Pixel p = 0xFFFFFFFF;
-	//olc::Pixel p2 = 0xFFFFFF70;
+	
+	//set colours and progressively fading intensities of pixels for stars so they appear further away.
 	olc::Pixel pStarClose = olc::PixelF(1.0f, 1.0f, 1.0f, 1.0f);
 	olc::Pixel pStarMid = olc::PixelF(1.0f, 1.0f, 1.0f, 0.6f);
 	olc::Pixel pStarFar = olc::PixelF(1.0f, 1.0f, 1.0f, 0.4f);
@@ -29,7 +29,7 @@ public:
 	bool OnUserCreate() override
 	{
 
-
+		//create enhanced for loops to initialise star vectors
 		for (auto& s : arrayStarsClose) s = { (float)(rand() % ScreenWidth()), (float)(rand() % ScreenHeight()) };
 		for (auto& s2 : arrayStarsMid) s2 = { (float)(rand() % ScreenWidth()), (float)(rand() % ScreenHeight()) };
 		for (auto& s3 : arrayStarsFar) s3 = { (float)(rand() % ScreenWidth()), (float)(rand() % ScreenHeight()) };
@@ -39,13 +39,10 @@ public:
 public:
 	bool OnUserUpdate(float fElapsedTime) override
 	{
-
+		//generates mersenne twister random numbers
 		std::mt19937 mt{};
-		for (int count{ 1 }; count <= 50; ++count) {
-			
-		}
-
-		 
+		
+		//three loops that draw stars for different layers of stars moving at slower speeds to give illusion of distance
 		Clear(olc::BLACK);
 		for (auto& s : arrayStarsClose)
 		{
@@ -85,7 +82,7 @@ public:
 		
 	}
 };
-
+//main function creates window with resolution and scaling
 int main()
 {
 	StarField demo;
