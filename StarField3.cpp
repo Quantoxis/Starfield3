@@ -81,16 +81,6 @@ public:
 			Draw(s3, pStarFar);
 		}
 
-		//vertical scrolling version
-		//Clear(olc::BLACK);
-		//for (auto& s : arrayStars)
-		//{
-		//	s.y += fWorldSpeed * fElapsedTime;
-		//	if (s.y > (float)ScreenHeight()) {
-		//		s = { (float)(rand() % ScreenWidth()), 0.0f };
-		//	}
-		//	Draw(s);
-		//}
 		return true;
 		
 	}
