@@ -30,9 +30,11 @@ public:
 	{
 
 		//create enhanced for loops to initialise star vectors
-		for (auto& s : arrayStarsClose) s = { (float)(rand() % ScreenWidth()), (float)(rand() % ScreenHeight()) };
-		for (auto& s2 : arrayStarsMid) s2 = { (float)(rand() % ScreenWidth()), (float)(rand() % ScreenHeight()) };
-		for (auto& s3 : arrayStarsFar) s3 = { (float)(rand() % ScreenWidth()), (float)(rand() % ScreenHeight()) };
+		std::mt19937 mt{};
+
+		for (auto& s : arrayStarsClose) s = { (float)(mt() % ScreenWidth()), (float)(mt() % ScreenHeight())};
+		for (auto& s2 : arrayStarsMid) s2 = { (float)(mt() % ScreenWidth()), (float)(mt() % ScreenHeight()) };
+		for (auto& s3 : arrayStarsFar) s3 = { (float)(mt() % ScreenWidth()), (float)(mt() % ScreenHeight()) };
 		return true;
 	}
 
