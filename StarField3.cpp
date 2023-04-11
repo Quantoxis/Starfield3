@@ -88,7 +88,7 @@ public:
 int main()
 {
 	StarField demo;
-	if (demo.Construct(400, 400, 1, 1)) {
+	if (demo.Construct(400, 400, 2, 2)) {
 		demo.Start();
 	}
 	return 0;
